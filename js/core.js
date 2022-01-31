@@ -5,47 +5,6 @@ var sky = {},
   $sky_window = jQuery(window),
   $sky_scroll = jQuery('.sky-content-scroll');
 
-class sky_Before_After {
-  constructor($obj) {
-    if ($obj instanceof jQuery) {
-
-      // Window Events
-      $sky_window.on('resize', function() {
-        this_class.layout();
-        this_class.reset();
-      }).on('load', function() {
-        this_class.layout();
-      });
-
-      // Layout
-      this.layout();
-
-      // Run Animation
-      this.requestAnimation();
-    } else {
-      return false;
-    }
-  }
-
-  layout() {
-    this.offset = this.$el.$wrap.offset().left;
-    this.size = this.$el.$wrap.width();
-  }
-  reset() {
-    this.current = 50;
-    this.target = 50;
-  }
-  requestAnimation() {
-    this.animation = requestAnimationFrame(() => this.animate());
-  }
-  animate() {
-    this.current += ((this.target - this.current) * 0.1);
-    this.$el.$after.css('width', parseFloat(this.current).toFixed(1) + '%');
-    this.$el.$divider.css('left', parseFloat(this.current).toFixed(1) + '%');
-    this.requestAnimation();
-  }
-}
-
 // sky
 if (jQuery('.slider').length) {
   sky.kenburns = {
