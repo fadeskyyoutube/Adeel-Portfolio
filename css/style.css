@@ -24,9 +24,10 @@
   opacity: 1;
 }
 
-.centertext {
-    padding-top: 250px;
-    text-align: center;
+.centeralign {
+  text-align: center;
+  position: relative;
+  top: 45%;
 }
 
 .home-text {
